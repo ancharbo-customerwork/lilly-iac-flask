@@ -16,10 +16,10 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Initialize
-        run: cd terraform; terraform init
+        run: terraform init -chdir=terraform/
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -chdir=terraform/
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
