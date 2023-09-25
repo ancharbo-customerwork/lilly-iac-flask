@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_function_app" "example" {
-  name                       = "example-functionapp"
+  name                       = "lilly-poc-functionapp"
   location                   = "eastus"
   resource_group_name        = "lilly"
   app_service_plan_id        = azurerm_app_service_plan.example.id
@@ -29,7 +29,7 @@ resource "azurerm_app_service_plan" "example" {
 }
 
 resource "azurerm_storage_account" "example" {
-  name                     = "examplestoracc"
+  name                     = "lilly-poc-storacc"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"
@@ -37,7 +37,7 @@ resource "azurerm_storage_account" "example" {
 }
 
 resource "azurerm_key_vault" "example" {
-  name                = "example-keyvault"
+  name                = "lilly-poc-keyvault"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   tenant_id           = "16b3c013-d300-468d-ac64-7eda0820b6d3"
@@ -45,7 +45,7 @@ resource "azurerm_key_vault" "example" {
 }
 resource "azurerm_storage_account" "blob_storage" {
   count                    = var.enable_blob_storage ? 1 : 0
-  name                     = "exampleblobstoracc"
+  name                     = "lilly-poc-blobstoracc"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"
