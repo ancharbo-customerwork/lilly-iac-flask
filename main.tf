@@ -4,14 +4,14 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "lilly"
+  name     = "lillypoc"
   location = "eastus"
 }
 
 resource "azurerm_function_app" "example" {
   name                       = "lilly-poc-functionapp"
   location                   = "eastus"
-  resource_group_name        = "lilly"
+  resource_group_name        = "lillypoc"
   app_service_plan_id        = azurerm_app_service_plan.example.id
   storage_account_name       = azurerm_storage_account.example.name
   storage_account_access_key = azurerm_storage_account.example.primary_access_key
