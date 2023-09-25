@@ -39,7 +39,7 @@ resource "azurerm_key_vault" "example" {
   name                = "example-keyvault"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
-  tenant_id           = var.ARM_TENANT_ID
+  tenant_id           = "ARM_TENANT_ID"
   sku_name = "standard"
 }
 resource "azurerm_storage_account" "blob_storage" {
