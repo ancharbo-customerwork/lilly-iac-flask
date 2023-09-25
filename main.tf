@@ -29,7 +29,7 @@ resource "azurerm_app_service_plan" "example" {
 }
 
 resource "azurerm_storage_account" "example" {
-  name                     = "lilly-poc-storacc"
+  name                     = "lillypocstoracc"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"
@@ -45,7 +45,7 @@ resource "azurerm_key_vault" "example" {
 }
 resource "azurerm_storage_account" "blob_storage" {
   count                    = var.enable_blob_storage ? 1 : 0
-  name                     = "lilly-poc-blobstoracc"
+  name                     = "lillypocblobstoracc"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"
