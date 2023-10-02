@@ -7,7 +7,7 @@ terraform {
   }
   backend "azurerm" {
       resource_group_name  = "tfstate"
-      storage_account_name = "<storage_account_name>"
+      storage_account_name = "lillypoc"
       container_name       = "tfstate"
       key                  = "terraform.tfstate"
   }
@@ -24,7 +24,7 @@ resource "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_function_app" "example" {
-  name                       = "lilly-poc-functionapp"
+  name                       = "lilly-poc2-functionapp"
   location                   = "eastus"
   resource_group_name        = "lillypoc"
   app_service_plan_id        = azurerm_app_service_plan.example.id
@@ -33,7 +33,7 @@ resource "azurerm_function_app" "example" {
 }
 
 resource "azurerm_app_service_plan" "example" {
-  name                = "example-appserviceplan"
+  name                = "lillypoc2-appserviceplan"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
@@ -44,7 +44,7 @@ resource "azurerm_app_service_plan" "example" {
 }
 
 resource "azurerm_storage_account" "example" {
-  name                     = "lillypocstoracc"
+  name                     = "lillypoc2storacc"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"
@@ -52,7 +52,7 @@ resource "azurerm_storage_account" "example" {
 }
 
 resource "azurerm_key_vault" "example" {
-  name                = "lilly-poc-keyvault"
+  name                = "lilly-poc2-keyvault"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   tenant_id                   = data.azurerm_client_config.current.tenant_id
