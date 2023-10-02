@@ -40,7 +40,6 @@ resource "azurerm_key_vault" "example" {
   name                = "lilly-poc-keyvault"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
-  tenant_id           = "16b3c013-d300-468d-ac64-7eda0820b6d3"
   sku_name = "standard"
 }
 resource "azurerm_storage_account" "blob_storage" {
