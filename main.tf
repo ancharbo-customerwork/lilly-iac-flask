@@ -2,7 +2,7 @@ provider "azurerm" {
   features {}
   skip_provider_registration = true
 }
-
+data "azurerm_client_config" "current" {}
 resource "azurerm_resource_group" "example" {
   name     = "lillypoc"
   location = "eastus"
@@ -40,6 +40,7 @@ resource "azurerm_key_vault" "example" {
   name                = "lilly-poc-keyvault"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
   sku_name = "standard"
 }
 resource "azurerm_storage_account" "blob_storage" {
