@@ -1,6 +1,7 @@
 name: Deploy to Azure
 
 on:
+  push:
   workflow_dispatch:
 
 permissions:
@@ -27,7 +28,11 @@ jobs:
 
       - name: Terraform Initialize
         run: terraform init
+        env:
+          ARM_USE_OIDC: true
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        env:
+          ARM_USE_OIDC: true
 
