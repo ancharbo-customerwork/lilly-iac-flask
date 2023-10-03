@@ -10,6 +10,7 @@ on:
       - main
     paths:
       - 'src/**'
+      - '.github/workflows/flask.main.container.deploy.yml'
   workflow_dispatch:
     inputs:
       incrementMajor:
